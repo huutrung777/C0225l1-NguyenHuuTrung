@@ -21,7 +21,7 @@ public class GopMang {
         for (int i = 0; i < m; i++) {
             System.out.print("mang2[" + i + "] = ");
             mang2[i] = scanner.nextInt();
-        }
+        }   
         int[] mang3 = new int[n + m];
 
         for (int i = 0; i < n; i++) {
