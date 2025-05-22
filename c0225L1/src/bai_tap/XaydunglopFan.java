@@ -1,18 +1,15 @@
 package bai_tap;
-// Lớp mô tả cái quạt
+
 class Fan {
-    // Các hằng số để biểu thị tốc độ
     public static final int SLOW = 1;
     public static final int MEDIUM = 2;
     public static final int FAST = 3;
 
-    // Thuộc tính
-    private int speed;       // tốc độ quạt
-    private boolean on;      // trạng thái bật/tắt
-    private double radius;   // bán kính
-    private String color;    // màu sắc
+    private int speed;
+    private boolean on;
+    private double radius;
+    private String color;
 
-    // Hàm khởi tạo không tham số
     public Fan() {
         this.speed = SLOW;
         this.on = false;
@@ -20,7 +17,6 @@ class Fan {
         this.color = "blue";
     }
 
-    // Getter và Setter
     public int getSpeed() {
         return speed;
     }
@@ -52,8 +48,6 @@ class Fan {
     public void setColor(String color) {
         this.color = color;
     }
-
-    // Phương thức toString mô tả thông tin quạt
     public String toString() {
         if (on) {
             return "Fan is on - Speed: " + speed + ", Color: " + color + ", Radius: " + radius;
@@ -62,24 +56,20 @@ class Fan {
         }
     }
 }
-
 public class XaydunglopFan {
     public static void main(String[] args) {
-        // Tạo đối tượng Fan 1
         Fan fan1 = new Fan();
-        fan1.setSpeed(Fan.FAST);      // tốc độ nhanh nhất
+        fan1.setSpeed(Fan.FAST);
         fan1.setRadius(10);
         fan1.setColor("yellow");
-        fan1.setOn(true);             // bật quạt
+        fan1.setOn(true);
 
-        // Tạo đối tượng Fan 2
         Fan fan2 = new Fan();
-        fan2.setSpeed(Fan.MEDIUM);    // tốc độ trung bình
+        fan2.setSpeed(Fan.MEDIUM);
         fan2.setRadius(5);
         fan2.setColor("blue");
-        fan2.setOn(false);            // tắt quạt
+        fan2.setOn(false);
 
-        // Hiển thị thông tin
         System.out.println("Quạt 1: " + fan1.toString());
         System.out.println("Quạt 2: " + fan2.toString());
 }
