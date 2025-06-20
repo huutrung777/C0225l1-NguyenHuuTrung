@@ -22,14 +22,6 @@ public static void displayThemMoiPT(){
             PTGTController.add(PTGT);
             System.out.println("Thêm mới thành công");
             break;
-
-
-
-
-
-
-
-
     }
 
 }
