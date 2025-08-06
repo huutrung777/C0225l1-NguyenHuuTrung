@@ -36,6 +36,7 @@ public class MainView {
        ;
         System.out.print("Mời bạn nhập lựa chọn: ");
         int choice = Integer.parseInt(sc.nextLine());
+
         return choice;
     }
     public int UpMenu() {

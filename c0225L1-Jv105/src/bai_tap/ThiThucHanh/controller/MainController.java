@@ -92,9 +92,7 @@ return true;
         System.out.println("Nhập FB");
         String newFB = sc.nextLine();
         tc.addDanhBa(new DanhBa(newhoTen,newsoDT,newDiaChi,newEmail,newFB));
-
     }
-
     private static void getDanhBaList() {
         System.out.println("------LIST Danh Ba-----");
         List<DanhBa> danhBas = tc.getDanhBa();
