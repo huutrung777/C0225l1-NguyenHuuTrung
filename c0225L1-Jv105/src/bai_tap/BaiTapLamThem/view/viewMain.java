@@ -8,7 +8,6 @@ import java.util.Scanner;
 public class viewMain {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        SanPham sanPham = new SanPham();
         boolean flag = true;
         while (flag) {
             System.out.println("------------Quản lý sinh viên----------");
