@@ -1,15 +1,14 @@
 package bai_tap.mvc2.view;
 
-import bai_tap.mvc1.entity.Student;
-import bai_tap.mvc2.entity.khachHang;
+import bai_tap.mvc2.entity.KhachHang;
 
 import java.util.List;
 import java.util.Scanner;
 
-public class khachHangView {
+public class KhachHangView {
     private static Scanner scanner = new Scanner(System.in);
-    public static void displayList(List<khachHang> khachHangList) {
-        for (khachHang khachHang : khachHangList) {
+    public static void displayList(List<KhachHang> khachHangList) {
+        for (KhachHang khachHang : khachHangList) {
             if (khachHang !=null){
                 System.out.println(khachHang);
             }else {
@@ -17,7 +16,7 @@ public class khachHangView {
             }
         }
     }
-    public static khachHang inputDataForNewkhachHang() {
+    public static KhachHang inputDataForNewkhachHang() {
         System.out.println("Nhập id");
         int id = Integer.parseInt(scanner.nextLine());
         System.out.println("Nhập tên");
@@ -26,7 +25,7 @@ public class khachHangView {
         String email = scanner.nextLine();
         System.out.println("Nhập địa chỉ");
         String address = scanner.nextLine();
-        khachHang khachHang = new khachHang(id, name, email, address);
+        KhachHang khachHang = new KhachHang(id, name, email, address);
         return khachHang;
 
     }

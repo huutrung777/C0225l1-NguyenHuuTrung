@@ -46,7 +46,6 @@ public class TeacherController {
                     break;
                 case 3:
                     System.out.println("Xoá");
-                    System.out.println("Xoá");
                     System.out.print("Nhập id giao vien cần xoá: ");
                     String deleteId = scanner.nextLine();
                     boolean isDeleteSuccess = teacherService.delete(deleteId);
@@ -58,7 +57,6 @@ public class TeacherController {
                     break;
 
                 case 4:
-                    System.out.println("Tìm kiếm");
                     System.out.println("Tìm kiếm");
                     System.out.print("Nhập id Giao vien cần tìm: ");
                     String searchId = scanner.nextLine();

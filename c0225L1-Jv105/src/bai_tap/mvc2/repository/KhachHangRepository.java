@@ -1,24 +1,24 @@
 package bai_tap.mvc2.repository;
 
-import bai_tap.mvc2.entity.khachHang;
+import bai_tap.mvc2.entity.KhachHang;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class khachHangRepository implements IkhachHangRepository {
-    private static List<khachHang> khachHangs = new ArrayList<khachHang>();
+public class KhachHangRepository implements IKhachHangRepository {
+    private static List<KhachHang> khachHangs = new ArrayList<KhachHang>();
     static {
-        khachHangs.add(new khachHang(1,"Trung","trungll060@gmail.com","Điện Biên Phủ"));
-        khachHangs.add(new khachHang(2,"Tâm","tam060@gmail.com","Điện Biên Phủ"));
-        khachHangs.add(new khachHang(3,"Liên","lien060@gmail.com","Điện Biên Phủ"));
+        khachHangs.add(new KhachHang(1,"Trung","trungll060@gmail.com","Điện Biên Phủ"));
+        khachHangs.add(new KhachHang(2,"Tâm","tam060@gmail.com","Điện Biên Phủ"));
+        khachHangs.add(new KhachHang(3,"Liên","lien060@gmail.com","Điện Biên Phủ"));
     }
     @Override
-    public List<khachHang> findAll() {
+    public List<KhachHang> findAll() {
         return khachHangs;
     }
 
     @Override
-    public boolean add(khachHang khachHang) {
+    public boolean add(KhachHang khachHang) {
         khachHangs.add(khachHang);
         return true;
     }
@@ -36,9 +36,9 @@ public class khachHangRepository implements IkhachHangRepository {
     }
 
     @Override
-    public khachHang findById(String id) {
+    public KhachHang findById(String id) {
         int intId = Integer.parseInt(String.valueOf(id));
-        for (khachHang khachHang : khachHangs) {
+        for (KhachHang khachHang : khachHangs) {
             if (khachHang.getId() == intId) {
                 return khachHang;
             }

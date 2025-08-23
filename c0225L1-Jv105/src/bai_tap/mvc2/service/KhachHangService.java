@@ -1,23 +1,24 @@
 package bai_tap.mvc2.service;
 
-import bai_tap.mvc2.entity.khachHang;
-import bai_tap.mvc2.repository.IkhachHangRepository;
-import bai_tap.mvc2.repository.khachHangRepository;
+import bai_tap.mvc2.entity.KhachHang;
+import bai_tap.mvc2.repository.IKhachHangRepository;
+import bai_tap.mvc2.repository.KhachHangRepository;
 
 import java.util.List;
 
-public class khachHangService implements IkhachHangService {
-    private IkhachHangRepository khachHangRepository=new khachHangRepository();
+public class KhachHangService implements IKhachHangService {
+    private IKhachHangRepository khachHangRepository=new KhachHangRepository();
 
 
     @Override
-    public List<khachHang> findAll() {
+    public List<KhachHang> findAll()
+    {
         return khachHangRepository.findAll();
     }
 
     @Override
-    public boolean add(khachHang khachHang) {
-        List<khachHang> khachHangs=khachHangRepository.findAll();
+    public boolean add(KhachHang khachHang) {
+        List<KhachHang> khachHangs=khachHangRepository.findAll();
         for (int i = 0; i <khachHangs.size() ; i++) {
             if (khachHangs.get(i)!=null){
                 if (khachHangs.get(i).getId()==khachHang.getId()){
@@ -34,7 +35,7 @@ public class khachHangService implements IkhachHangService {
 
     @Override
     public boolean delete(String id) {
-        khachHang khachHang = khachHangRepository.findById(id);
+        KhachHang khachHang = khachHangRepository.findById(id);
         if (khachHang == null) {
             System.out.println("Không tìm thấy sinh viên có id = " + id);
             return false;
@@ -43,8 +44,8 @@ public class khachHangService implements IkhachHangService {
     }
 
     @Override
-    public khachHang findById(String id) {
-        khachHang khachHang = khachHangRepository.findById(id);
+    public KhachHang findById(String id) {
+        KhachHang khachHang = khachHangRepository.findById(id);
         if (khachHang == null) {
             System.out.println("Không tìm thấy sinh viên có id = " + id);
         }

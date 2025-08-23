@@ -1,6 +1,6 @@
 package bai_tap.mvc1.entity;
 
-public class Person {
+public abstract class Person {
     private int id;
     private String name;
 

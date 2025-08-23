@@ -1,18 +1,16 @@
 package bai_tap.mvc2.controller;
 
-import bai_tap.mvc1.entity.Student;
-import bai_tap.mvc1.view.StudentView;
-import bai_tap.mvc2.entity.khachHang;
-import bai_tap.mvc2.service.IkhachHangService;
-import bai_tap.mvc2.service.khachHangService;
-import bai_tap.mvc2.view.khachHangView;
+import bai_tap.mvc2.entity.KhachHang;
+import bai_tap.mvc2.service.IKhachHangService;
+import bai_tap.mvc2.service.KhachHangService;
+import bai_tap.mvc2.view.KhachHangView;
 
 import java.util.List;
 import java.util.Scanner;
 
-public class khachHangController {
+public class KhachHangController {
     public static void displayMenu() {
-        IkhachHangService khachHangService = new khachHangService();
+        IKhachHangService khachHangService = new KhachHangService();
         Scanner scanner = new Scanner(System.in);
         boolean flag = true;
         while (flag) {
@@ -29,12 +27,12 @@ public class khachHangController {
             switch (choice) {
                 case 1:
                     System.out.println("Danh sách");
-                    List<khachHang> khachHangList = khachHangService.findAll();
-                    khachHangView.displayList(khachHangList);
+                    List<KhachHang> khachHangList = khachHangService.findAll();
+                    KhachHangView.displayList(khachHangList);
                     break;
                 case 2:
                     System.out.println("Thêm mới");
-                    khachHang khachHang = khachHangView.inputDataForNewkhachHang();
+                    KhachHang khachHang = KhachHangView.inputDataForNewkhachHang();
                     boolean isAddSuccess = khachHangService.add(khachHang);
                     if (isAddSuccess) {
                         System.out.println("Thêm mới thành công");
@@ -57,7 +55,7 @@ public class khachHangController {
                     System.out.println("Tìm kiếm");
                     System.out.print("Nhập id sinh viên cần tìm: ");
                     String searchId = scanner.nextLine();
-                    khachHang foundkhachHang = khachHangService.findById(searchId);
+                    KhachHang foundkhachHang = khachHangService.findById(searchId);
                     if (foundkhachHang != null) {
                         System.out.println("Đã tìm thấy: " + foundkhachHang);
                     } else {
