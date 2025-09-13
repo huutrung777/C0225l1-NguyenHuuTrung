@@ -1,12 +1,8 @@
 package bai_tap.mvc1.controller;
 
-import bai_tap.mvc1.entity.Student;
 import bai_tap.mvc1.entity.Teacher;
-import bai_tap.mvc1.service.IStudentService;
 import bai_tap.mvc1.service.ITeacherService;
-import bai_tap.mvc1.service.StudentService;
 import bai_tap.mvc1.service.TeacherService;
-import bai_tap.mvc1.view.StudentView;
 import bai_tap.mvc1.view.TeacherView;
 
 import java.util.List;
@@ -45,27 +41,26 @@ public class TeacherController {
                     }
                     break;
                 case 3:
-                    System.out.println("Xoá");
-                    System.out.print("Nhập id giao vien cần xoá: ");
-                    String deleteId = scanner.nextLine();
-                    boolean isDeleteSuccess = teacherService.delete(deleteId);
-                    if (isDeleteSuccess) {
+                    System.out.print("Nhập id sinh viên cần xoá: ");
+                    int deleteId = Integer.parseInt(scanner.nextLine());
+                    boolean check = teacherService.delete(deleteId);
+                    if (check) {
                         System.out.println("Xoá thành công");
                     } else {
-                        System.out.println("Xoá không thành công (không tìm thấy id)");
+                        System.out.println("Xoá không thành công");
                     }
                     break;
 
                 case 4:
-                    System.out.println("Tìm kiếm");
-                    System.out.print("Nhập id Giao vien cần tìm: ");
-                    String searchId = scanner.nextLine();
-                    Teacher foundStudent = teacherService.findById(searchId);
-                    if (foundStudent != null) {
-                        System.out.println("Đã tìm thấy: " + foundStudent);
+                    System.out.print("Nhập id sinh viên cần tìm: ");
+                    int findId = Integer.parseInt(scanner.nextLine());
+                    Teacher foundTeacher = teacherService.findById(findId);
+                    if (foundTeacher != null) {
+                        System.out.println("Đã tìm thấy: " + foundTeacher);
                     } else {
-                        System.out.println("Không tìm thấy giao vien có id = " + searchId);
+                        System.out.println("Không tìm thấy sinh viên có id = " + findId);
                     }
+                    break;
                 default:
                     System.out.println("Đã kết thúc chương trình");
                     flag = false;

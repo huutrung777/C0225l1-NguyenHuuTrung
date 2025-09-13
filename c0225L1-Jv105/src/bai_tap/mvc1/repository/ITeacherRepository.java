@@ -7,6 +7,6 @@ import java.util.List;
 public interface ITeacherRepository {
     List<Teacher> findAll();
     boolean add(Teacher teacher);
-    Teacher findById(String id);
-    boolean delete(String id);
+    Teacher findById(int id);
+    boolean deleteById(int id);
 }

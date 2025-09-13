@@ -7,8 +7,8 @@ import java.util.List;
 public interface IStudentService {
     List<Student> findAll();
     boolean add(Student student);
-    boolean delete(String id);            // xóa sinh viên theo id
-    Student findById(String id);
+    boolean delete(int id);            // xóa sinh viên theo id
+    Student findById(int id);
 
 
 }

@@ -47,6 +47,7 @@ public  abstract class PhuongTien {
     public void setChuSoHuu(String chuSoHuu) {
         this.chuSoHuu = chuSoHuu;
     }
+    public abstract String getInfoToCSV();
 
     @Override
     public String toString() {

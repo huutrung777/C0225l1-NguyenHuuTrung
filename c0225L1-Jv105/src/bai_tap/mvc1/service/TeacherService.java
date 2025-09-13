@@ -33,21 +33,18 @@ private ITeacherRepository teacherRepository=new TeacherRepository();
     }
 
     @Override
-    public boolean delete(String id) {
+    public boolean delete(int id) {
         Teacher teacher = teacherRepository.findById(id);
         if (teacher == null) {
-            System.out.println("Không tìm thấy giáo viên có id = " + id);
+            System.out.println("Không tìm thấy giáo viên với id = " + id);
             return false;
         }
-        return teacherRepository.delete(id);
+        return teacherRepository.deleteById(id);
     }
 
     @Override
-    public Teacher findById(String id) {
-        Teacher teacher = teacherRepository.findById(id);
-        if (teacher == null) {
-            System.out.println("Không tìm thấy giáo viên có id = " + id);
-        }
-        return teacher;
+    public Teacher findById(int id) {
+        return teacherRepository.findById(id);
     }
+
 }

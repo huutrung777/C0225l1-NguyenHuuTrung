@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class StudentController {
-    public static void displayMenu(){
+    public static void displayMenu() {
         IStudentService studentService = new StudentService();
         Scanner scanner = new Scanner(System.in);
         boolean flag = true;
@@ -26,10 +26,10 @@ public class StudentController {
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
                 case 1:
-                System.out.println("Danh sách");
-                List<Student> studentList = studentService.findAll();
-                StudentView.displayList(studentList);
-                break;
+                    System.out.println("Danh sách");
+                    List<Student> studentList = studentService.findAll();
+                    StudentView.displayList(studentList);
+                    break;
                 case 2:
                     System.out.println("Thêm mới");
                     Student student = StudentView.inputDataForNewStudent();
@@ -41,30 +41,32 @@ public class StudentController {
                     }
                     break;
                 case 3:
-                    System.out.println("Xoá");
                     System.out.print("Nhập id sinh viên cần xoá: ");
-                    String deleteId = scanner.nextLine();
-                    boolean isDeleteSuccess = studentService.delete(deleteId);
-                    if (isDeleteSuccess) {
+                    int deleteId = Integer.parseInt(scanner.nextLine());
+                    boolean check = studentService.delete(deleteId);
+                    if (check) {
                         System.out.println("Xoá thành công");
                     } else {
-                        System.out.println("Xoá không thành công (không tìm thấy id)");
+                        System.out.println("Xoá không thành công");
                     }
                     break;
                 case 4:
-                    System.out.println("Tìm kiếm");
                     System.out.print("Nhập id sinh viên cần tìm: ");
-                    String searchId = scanner.nextLine();
-                    Student foundStudent = studentService.findById(searchId);
+                    int findId = Integer.parseInt(scanner.nextLine());
+                    Student foundStudent = studentService.findById(findId);
                     if (foundStudent != null) {
                         System.out.println("Đã tìm thấy: " + foundStudent);
                     } else {
-                        System.out.println("Không tìm thấy sinh viên có id = " + searchId);
+                        System.out.println("Không tìm thấy sinh viên có id = " + findId);
                     }
+                    break;
                 default:
                     System.out.println("Đã kết thúc chương trình");
                     flag = false;
-                    break;}
+                    break;
+
+
+            }
         }
     }
 }

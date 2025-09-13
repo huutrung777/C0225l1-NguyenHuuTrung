@@ -1,6 +1,4 @@
 package bai_tap.mvc3.Service;
-
-import bai_tap.mvc2.entity.KhachHang;
 import bai_tap.mvc3.Entity.Oto;
 import bai_tap.mvc3.Repoitory.IOtoRepository;
 import bai_tap.mvc3.Repoitory.OtoRepository;
@@ -15,21 +13,21 @@ public class OtoService implements IOtoService {
         return otoRepository.findAll();
     }
 
+
     @Override
     public boolean add(Oto oto) {
-        List<Oto> otos=otoRepository.findAll();
-        for(int i=0;i<otos.size();i++){
-            if (otos.get(i)!=null){
-                System.out.println("Biển số đã tồn tại");
+        List<Oto> otos = otoRepository.findAll();
+        for (Oto o : otos) {
+            if (o.getBienKiemSoat().equalsIgnoreCase(oto.getBienKiemSoat())) {
+                System.out.println("Biển số đã tồn tại: " + oto.getBienKiemSoat());
                 return false;
-            }else {
-                break;
             }
-        } return otoRepository.add(oto);
-
-
+        }
+        return otoRepository.add(oto);
     }
-@Override
+
+
+    @Override
     public boolean delete(String bienKiemSoat) {
         Oto oto =otoRepository.findByBienKiemSoat(bienKiemSoat);
         if (oto == null) {

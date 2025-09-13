@@ -17,7 +17,7 @@ public class StudentService implements IStudentService {
 
     @Override
     public boolean add(Student student) {
-        List<Student> students=studentRepository.findAll();
+        List<Student> students = studentRepository.findAll();
         for (int i = 0; i <students.size() ; i++) {
             if (students.get(i)!=null){
                 if (students.get(i).getId()==student.getId()){
@@ -33,22 +33,18 @@ public class StudentService implements IStudentService {
     }
 
     @Override
-    public boolean delete(String id) {
+    public boolean delete(int id) {
         Student student = studentRepository.findById(id);
         if (student == null) {
-            System.out.println("Không tìm thấy sinh viên có id = " + id);
+            System.out.println("Không tìm thấy sinh viên với id = " + id);
             return false;
         }
-        return studentRepository.delete(id);
-
+        return studentRepository.deleteById(id);
     }
 
     @Override
-    public Student findById(String id) {
-        Student student = studentRepository.findById(id);
-        if (student == null) {
-            System.out.println("Không tìm thấy sinh viên có id = " + id);
-        }
-        return student;
+    public Student findById(int id) {
+        return studentRepository.findById(id);
     }
+
 }
