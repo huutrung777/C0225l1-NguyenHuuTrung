@@ -26,11 +26,6 @@ private static IXeMayRepository xeMayRepository=new XeMayRepository();
 
     @Override
     public boolean delete(String bienKiemSoat) {
-        XeMay xeMay = xeMayRepository.findByBienKiemSoat(bienKiemSoat);
-        if (xeMay == null) {
-            System.out.println("Không tìm thấy biển số xe này = " + bienKiemSoat);
-            return false;
-        }
         return xeMayRepository.delete(bienKiemSoat);
     }
 

@@ -1,8 +1,6 @@
 package bai_tap.bai8.reponsitory;
 
 import bai_tap.bai8.entity.Car;
-import bai_tap.mvc.util.ReadAndWriteFile;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;

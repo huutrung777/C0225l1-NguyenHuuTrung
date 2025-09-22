@@ -34,11 +34,6 @@ private ITeacherRepository teacherRepository=new TeacherRepository();
 
     @Override
     public boolean delete(int id) {
-        Teacher teacher = teacherRepository.findById(id);
-        if (teacher == null) {
-            System.out.println("Không tìm thấy giáo viên với id = " + id);
-            return false;
-        }
         return teacherRepository.deleteById(id);
     }
 

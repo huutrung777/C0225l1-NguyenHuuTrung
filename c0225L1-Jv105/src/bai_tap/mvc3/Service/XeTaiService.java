@@ -26,11 +26,6 @@ public class XeTaiService implements IXeTaiService {
 
     @Override
     public boolean delete(String bienKiemSoat) {
-        XeTai xeTai = xeTaiRepository.findByBienKiemSoat(bienKiemSoat);
-        if (xeTai == null) {
-            System.out.println("Không tìm thấy biển số xe này = " + bienKiemSoat);
-            return false;
-        }
         return xeTaiRepository.delete(bienKiemSoat);
     }
 

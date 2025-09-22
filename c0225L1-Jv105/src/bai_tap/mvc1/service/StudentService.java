@@ -34,11 +34,6 @@ public class StudentService implements IStudentService {
 
     @Override
     public boolean delete(int id) {
-        Student student = studentRepository.findById(id);
-        if (student == null) {
-            System.out.println("Không tìm thấy sinh viên với id = " + id);
-            return false;
-        }
         return studentRepository.deleteById(id);
     }
 

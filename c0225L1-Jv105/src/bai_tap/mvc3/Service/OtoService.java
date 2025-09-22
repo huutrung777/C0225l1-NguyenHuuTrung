@@ -29,11 +29,6 @@ public class OtoService implements IOtoService {
 
     @Override
     public boolean delete(String bienKiemSoat) {
-        Oto oto =otoRepository.findByBienKiemSoat(bienKiemSoat);
-        if (oto == null) {
-            System.out.println("Không tìm thấy biển số xe này = " + bienKiemSoat);
-            return false;
-        }
         return otoRepository.delete(bienKiemSoat);
     }
 
