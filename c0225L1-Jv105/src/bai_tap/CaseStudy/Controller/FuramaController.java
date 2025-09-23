@@ -25,7 +25,8 @@ public class FuramaController {
                     EmployeeController.displayMenu();
                     break;
                 case 2:
-//                    displayCustomerMenu();
+                    System.out.println("Chưc năng quản ly Customer");
+                    CustomerController.displayMenu();
                     break;
                 case 3:
 //                    displayFacilityMenu();

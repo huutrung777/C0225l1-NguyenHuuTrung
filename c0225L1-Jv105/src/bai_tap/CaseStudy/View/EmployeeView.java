@@ -1,8 +1,7 @@
 package bai_tap.CaseStudy.View;
 
 import bai_tap.CaseStudy.Entity.Employee;
-import bai_tap.CaseStudy.Utill.CheckValidate;
-import bai_tap.mvc1.entity.Student;
+import bai_tap.CaseStudy.Utill.CheckValidateEmployee;
 
 import java.util.List;
 import java.util.Scanner;
@@ -21,34 +20,34 @@ public class EmployeeView {
     }
     public static Employee inputDataForNewEmployee() {
 
-        int id;
+        String maNV;
         while (true) {
-            System.out.println("Nhập mã nhân viên (định dạng NV-YYYY, chỉ nhập số YYYY):");
-            String idInput = scanner.nextLine();
-            if (CheckValidate.checkMaNhanVien("NV-" + idInput)) {
-                id = Integer.parseInt(idInput);
+            System.out.print("Nhập mã nhân viên (định dạng NV-YYYY, ví dụ NV-1234): ");
+            maNV = scanner.nextLine();
+            if (CheckValidateEmployee.checkMaNhanVien(maNV)) {
                 break;
             } else {
-                System.out.println(" Mã nhân viên không hợp lệ, ví dụ NV-1234");
+                System.out.println("Mã nhân viên không hợp lệ! Ví dụ hợp lệ: NV-1234");
             }
         }
+
         String name ="";
         do {
             System.out.println("Nhập tên");
             name =scanner.nextLine();
-        }while (!CheckValidate.checkName(name));
+        }while (!CheckValidateEmployee.checkName(name));
         String ngaySinh="";
         do {
             System.out.println("Nhập ngày sinh (dd/MM/yyyy):");
             ngaySinh = scanner.nextLine();
-        }while (!CheckValidate.checkNgaySinh(ngaySinh));
+        }while (!CheckValidateEmployee.checkNgaySinh(ngaySinh));
         System.out.println("Nhập giới tính:");
         String gioiTinh = scanner.nextLine();
         int cmnd;
         while (true) {
             System.out.println("Nhập số CMND (9 hoặc 12 số):");
             String cmndInput = scanner.nextLine();
-            if (CheckValidate.checkCMND(cmndInput)) {
+            if (CheckValidateEmployee.checkCMND(cmndInput)) {
                 cmnd = Integer.parseInt(cmndInput);
                 break;
             } else {
@@ -60,7 +59,7 @@ public class EmployeeView {
         do {
             System.out.println("Nhập số điện thoại (10 số, bắt đầu bằng 0):");
             phone = scanner.nextLine();
-        } while (!CheckValidate.checkSoDienThoai(phone));
+        } while (!CheckValidateEmployee.checkSoDienThoai(phone));
         System.out.println("Nhập email:");
         String email = scanner.nextLine();
         System.out.println("Nhập trình độ:");
@@ -73,8 +72,8 @@ public class EmployeeView {
         do {
             System.out.println("Nhập lương (> 0):");
             luong = Double.parseDouble(scanner.nextLine());
-        } while (!CheckValidate.checkLuong(luong));
-        Employee employee = new Employee(id,name,ngaySinh,gioiTinh,cmnd,phone,email,trinhDo,viTri,luong);
+        } while (!CheckValidateEmployee.checkLuong(luong));
+        Employee employee = new Employee(maNV,name,ngaySinh,gioiTinh,cmnd,phone,email,trinhDo,viTri,luong);
         return employee;
 
     }

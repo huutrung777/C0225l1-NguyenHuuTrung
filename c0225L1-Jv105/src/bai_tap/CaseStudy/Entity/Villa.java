@@ -1,6 +1,6 @@
 package bai_tap.CaseStudy.Entity;
 
-public class Villa extends Furama {
+public class Villa extends Facility {
     private String tieuChuanPhong;
     private double dienTichHoBoi;
     private int soTang;

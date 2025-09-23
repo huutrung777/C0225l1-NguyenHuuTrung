@@ -1,6 +1,6 @@
 package bai_tap.CaseStudy.Entity;
 
-public abstract class Furama {
+public abstract class Facility {
     private int MaDichVu;
     private String TenDichVu;
     private double dienTich;
@@ -8,10 +8,10 @@ public abstract class Furama {
     private int SoLuongNguoi;
     private String KieuThue;
 
-    public Furama() {
+    public Facility() {
     }
 
-    public Furama(int maDichVu, String tenDichVu, double dienTich, double chiPhi, int soLuongNguoi, String kieuThue) {
+    public Facility(int maDichVu, String tenDichVu, double dienTich, double chiPhi, int soLuongNguoi, String kieuThue) {
         MaDichVu = maDichVu;
         TenDichVu = tenDichVu;
         this.dienTich = dienTich;

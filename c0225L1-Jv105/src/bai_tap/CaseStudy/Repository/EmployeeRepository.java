@@ -1,5 +1,6 @@
 package bai_tap.CaseStudy.Repository;
 
+import bai_tap.CaseStudy.Entity.Customer;
 import bai_tap.CaseStudy.Entity.Employee;
 
 
@@ -21,7 +22,7 @@ private final String EMPLOYEE_FILE="c0225L1-Jv105/src/bai_tap/CaseStudy/Data/Emp
             String[] array = null;
             for (String line : stringList) {
                 array = line.split(",");
-                Employee employee = new Employee(Integer.parseInt(array[0]), array[1], array[2], array[3], Integer.parseInt(array[4]), array[5], array[6], array[7], array[8], Double.parseDouble(array[9]));
+                Employee employee = new Employee(array[0], array[1], array[2], array[3], Integer.parseInt(array[4]), array[5], array[6], array[7], array[8], Double.parseDouble(array[9]));
                 employeeList.add(employee);
             }
         }catch (Exception e){
@@ -45,25 +46,26 @@ private final String EMPLOYEE_FILE="c0225L1-Jv105/src/bai_tap/CaseStudy/Data/Emp
 
     @Override
     public boolean delete(int maNhanVien) {
-        boolean isDelete = false;
+        boolean isSuccessDelete = false;
         List<Employee> employeeList = findAll();
-        for (int i = 0; i <employeeList.size() ; i++) {
-            if (maNhanVien== employeeList.get(i).getMaNhanVien()){
+
+        for (int i = 0; i < employeeList.size(); i++) {
+            if (employeeList.get(i).getMaNhanVien().equals(maNhanVien)) {
                 employeeList.remove(i);
-                isDelete = true;
+                isSuccessDelete = true;
                 break;
             }
         }
-        // chuyển sang listring để ghi lại
+
         List<String> stringList = new ArrayList<>();
-        for (Employee e: employeeList) {
-            stringList.add(e.getInfoToCSV());
+        for (Employee employee : employeeList) {
+            stringList.add(employee.getInfoToCSV());
         }
         try {
-            ReadAndWriteFile.writeListStringToCSV(EMPLOYEE_FILE,stringList,false);
+            bai_tap.mvc1.Utill.ReadAndWriteFile.writeListStringToCSV(EMPLOYEE_FILE, stringList, false);
         } catch (IOException e) {
-            System.out.println("loi ghi file");
+            System.out.println("Lỗi ghi file!");
         }
-        return isDelete;
+        return isSuccessDelete;
     }
 }

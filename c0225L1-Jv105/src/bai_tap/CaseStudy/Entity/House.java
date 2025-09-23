@@ -1,6 +1,6 @@
 package bai_tap.CaseStudy.Entity;
 
-public class House extends Furama {
+public class House extends Facility {
     private String tieuChuanPhong;
     private int soTang;
 
