@@ -1,7 +1,7 @@
 package bai_tap.CaseStudy.Entity;
 
 public abstract class Person {
-    private String maNhanVien;
+    private String maID;
     private String hoTen;
     private String ngaySinh;
     private String gioiTinh;
@@ -13,7 +13,7 @@ public abstract class Person {
     }
 
     public Person(String maNhanVien, String hoTen, String ngaySinh, String gioiTinh, int soCMND, String soDienThoai, String email) {
-        this.maNhanVien = maNhanVien;
+        this.maID = maNhanVien;
         this.hoTen = hoTen;
         this.ngaySinh = ngaySinh;
         this.gioiTinh = gioiTinh;
@@ -22,12 +22,12 @@ public abstract class Person {
         this.email = email;
     }
 
-    public String getMaNhanVien() {
-        return maNhanVien;
+    public String getMaID() {
+        return maID;
     }
 
-    public void setMaNhanVien(String maNhanVien) {
-        this.maNhanVien = maNhanVien;
+    public void setMaID(String maNhanVien) {
+        this.maID = maNhanVien;
     }
 
     public String getHoTen() {
@@ -83,7 +83,7 @@ public abstract class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "maNhanVien=" + maNhanVien +
+                "maNhanVien=" + maID +
                 ", hoTen='" + hoTen + '\'' +
                 ", ngaySinh='" + ngaySinh + '\'' +
                 ", gioiTinh='" + gioiTinh + '\'' +

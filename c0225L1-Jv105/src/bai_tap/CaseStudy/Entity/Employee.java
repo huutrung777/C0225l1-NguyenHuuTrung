@@ -1,7 +1,6 @@
 package bai_tap.CaseStudy.Entity;
 
 public class Employee extends Person {
-
     private String trinhDo;
     private String viTri;
     private double luong;
@@ -40,18 +39,19 @@ public class Employee extends Person {
         this.luong = luong;
     }
 
-    public String getInfoToCSV() {
-        return getMaNhanVien() + "," + getHoTen() + "," + getNgaySinh() + "," + getGioiTinh() + ","
-                + getSoCMND() + "," + getSoDienThoai() + "," + getEmail() + ","
-                + getTrinhDo() + "," + getViTri() + "," + getLuong();
-    }
-
     @Override
     public String toString() {
-        return "Employee{" + super.toString()+
+        return "Employee{" +super.toString()+
                 "trinhDo='" + trinhDo + '\'' +
                 ", viTri='" + viTri + '\'' +
                 ", luong=" + luong +
                 '}';
+    }
+
+    @Override
+    public String getInfoToCSV() {
+        return getMaID() + "," + getHoTen() + "," + getNgaySinh() + "," + getGioiTinh() + ","
+                + getSoCMND() + "," + getSoDienThoai() + "," + getEmail() + ","
+                + getTrinhDo() + "," + getViTri() + "," + getLuong();
     }
 }

@@ -1,13 +1,10 @@
 package bai_tap.CaseStudy.Controller;
 
 import bai_tap.CaseStudy.Entity.Customer;
-import bai_tap.CaseStudy.Entity.Employee;
 import bai_tap.CaseStudy.Service.CustomerService;
-import bai_tap.CaseStudy.Service.EmployeeService;
 import bai_tap.CaseStudy.Service.ICustomerService;
-import bai_tap.CaseStudy.Service.IEmployeeService;
 import bai_tap.CaseStudy.View.CustomerView;
-import bai_tap.CaseStudy.View.EmployeeView;
+
 
 import java.util.List;
 import java.util.Scanner;
@@ -23,19 +20,20 @@ public class CustomerController {
                     "\n 1. Danh sách" +
                     "\n 2. Thêm mới" +
                     "\n 3. Xoá" +
-                    "\n 4. Quay lại menu chính"
+                    "\n 4. Cập nhật" +
+                    "\n 5. Quay lại menu chính"
             );
             System.out.println("Chọn chức năng");
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
                 case 1:
                     System.out.println("Danh sách");
-                    List<Customer> customerList=customerService.findAll();
+                    List<Customer> customerList = customerService.findAll();
                     CustomerView.displayList(customerList);
                     break;
                 case 2:
                     System.out.println("Thêm mới");
-                    Customer customer=CustomerView.inputDataForNewCustomer();
+                    Customer customer = CustomerView.inputDataForNewCustomer();
                     boolean isAddSuccess = customerService.add(customer);
                     if (isAddSuccess) {
                         System.out.println("Thêm mới thành công");
@@ -45,7 +43,7 @@ public class CustomerController {
                     break;
                 case 3:
                     System.out.print("Nhập mã nhân viên cần xoá: ");
-                    int deleteId = Integer.parseInt(scanner.nextLine());
+                    String deleteId = scanner.nextLine();
                     boolean check = customerService.delete(deleteId);
                     if (check) {
                         System.out.println("Xoá thành công");
@@ -53,6 +51,29 @@ public class CustomerController {
                         System.out.println("Xoá không thành công");
                     }
                     break;
+                case 4:
+                    System.out.print("Nhập mã khách hàng cần cập nhật: ");
+                    String updateId = scanner.nextLine();
+                    Customer customerToUpdate = null;
+                    for (Customer c : customerService.findAll()) {
+                        if (c.getMaID().equals(updateId)) {
+                            customerToUpdate = c;
+                            break;
+                        }
+                    }
+
+                    if (customerToUpdate == null) {
+                        System.out.println("Không tìm thấy khách hàng có mã: " + updateId);
+                    } else {
+                        CustomerView.inputDataForUpdateCustomer(customerToUpdate);
+                        if (customerService.update(customerToUpdate)) {
+                            System.out.println("Cập nhật thành công và lưu vào file!");
+                        } else {
+                            System.out.println("Cập nhật thất bại");
+                        }
+                    }
+                    break;
+
                 default:
                     System.out.println("Đã kết thúc chương trình");
                     flag = false;

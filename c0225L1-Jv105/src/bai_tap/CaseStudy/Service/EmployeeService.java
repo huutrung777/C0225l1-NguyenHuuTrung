@@ -3,7 +3,6 @@ package bai_tap.CaseStudy.Service;
 import bai_tap.CaseStudy.Entity.Employee;
 import bai_tap.CaseStudy.Repository.EmployeeRepository;
 import bai_tap.CaseStudy.Repository.IEmployeeRepository;
-import bai_tap.mvc1.entity.Student;
 
 import java.util.List;
 
@@ -20,7 +19,7 @@ public class EmployeeService implements IEmployeeService{
         List<Employee> employees = employeeRepository.findAll();
         for (int i = 0; i <employees.size() ; i++) {
             if (employees.get(i)!=null){
-                if (employees.get(i).getMaNhanVien()==employee.getMaNhanVien()){
+                if (employees.get(i).getMaID()==employee.getMaID()){
                     System.out.println("id đã tồn tại");
                     return false;
                 }
@@ -33,7 +32,22 @@ public class EmployeeService implements IEmployeeService{
     }
 
     @Override
-    public boolean delete(int maNhanVien) {
-return employeeRepository.delete(maNhanVien);
+    public boolean delete(String maNhanVien) {
+        return employeeRepository.delete(maNhanVien);
     }
+
+    @Override
+    public boolean update(Employee employee) {
+        return employeeRepository.update(employee);
+    }
+    public Employee findById(String maNhanVien) {
+        for (Employee e : employeeRepository.findAll()) {
+            if (e.getMaID().equals(maNhanVien)) {
+                return e;
+            }
+        }
+        return null;
+    }
+
+
 }

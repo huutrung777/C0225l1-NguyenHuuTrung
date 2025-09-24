@@ -1,6 +1,6 @@
 package bai_tap.CaseStudy.View;
 
-import bai_tap.CaseStudy.Controller.EmployeeController;
+
 import bai_tap.CaseStudy.Controller.FuramaController;
 
 public class MainView {

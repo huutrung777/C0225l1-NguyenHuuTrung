@@ -39,7 +39,7 @@ public class Customer extends Person {
 
     @Override
     public String getInfoToCSV() {
-        return getMaNhanVien() + "," + getHoTen() + "," + getNgaySinh() + "," + getGioiTinh() + ","
+        return getMaID() + "," + getHoTen() + "," + getNgaySinh() + "," + getGioiTinh() + ","
                 + getSoCMND() + "," + getSoDienThoai() + "," + getEmail() + ","+getLoaiKhach()+","+getDiachi();
     }
 }

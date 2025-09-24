@@ -7,5 +7,8 @@ import java.util.List;
 public interface ICustomerRepository {
     List<Customer> findAll();
     boolean add(Customer customer);
-    boolean delete(int maNhanVien);
+    boolean delete(String maKhachHang);
+    boolean update(Customer customer);
+    Customer findById(String maNhanVien);
+
 }

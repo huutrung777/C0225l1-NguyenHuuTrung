@@ -70,4 +70,73 @@ public class CustomerView {
         Customer customer = new Customer(maKH, name, ngaySinh, gioiTinh, cmnd, phone, email, loaiKhach, diachi);
         return customer;
     }
+    public static void inputDataForUpdateCustomer(Customer customer) {
+        System.out.println("Mã khách hàng: " + customer.getMaID());
+
+        System.out.print("Tên hiện tại: " + customer.getHoTen() + " | Nhập tên mới (Enter để giữ nguyên): ");
+        String name;
+        do {
+            name = scanner.nextLine();
+            if (name.isEmpty()) {
+                name = customer.getHoTen();
+                break;
+            }
+        } while (!CheckValidateCustomer.checkName(name));
+        customer.setHoTen(name);
+
+        System.out.print("Ngày sinh hiện tại: " + customer.getNgaySinh() + " | Nhập ngày sinh mới (Enter để giữ nguyên): ");
+        String ngaySinh;
+        do {
+            ngaySinh = scanner.nextLine();
+            if (ngaySinh.isEmpty()) {
+                ngaySinh = customer.getNgaySinh();
+                break;
+            }
+        } while (!CheckValidateEmployee.checkNgaySinh(ngaySinh));
+        customer.setNgaySinh(ngaySinh);
+
+        System.out.print("Giới tính hiện tại: " + customer.getGioiTinh() + " | Nhập giới tính mới (Enter để giữ nguyên): ");
+        String gioiTinh = scanner.nextLine();
+        if (!gioiTinh.isEmpty()) customer.setGioiTinh(gioiTinh);
+
+        System.out.print("CMND hiện tại: " + customer.getSoCMND() + " | Nhập CMND mới (Enter để giữ nguyên): ");
+        String cmndInput;
+        do {
+            cmndInput = scanner.nextLine();
+            if (cmndInput.isEmpty()) {
+                cmndInput = String.valueOf(customer.getSoCMND());
+                break;
+            }
+        } while (!CheckValidateCustomer.checkCMND(cmndInput));
+        customer.setSoCMND(Integer.parseInt(cmndInput));
+
+        System.out.print("Số điện thoại hiện tại: " + customer.getSoDienThoai() + " | Nhập số điện thoại mới (Enter để giữ nguyên): ");
+        String phone;
+        do {
+            phone = scanner.nextLine();
+            if (phone.isEmpty()) {
+                phone = customer.getSoDienThoai();
+                break;
+            }
+        } while (!CheckValidateCustomer.checkSoDienThoai(phone));
+        customer.setSoDienThoai(phone);
+
+        System.out.print("Email hiện tại: " + customer.getEmail() + " | Nhập email mới (Enter để giữ nguyên): ");
+        String email = scanner.nextLine();
+        if (!email.isEmpty()) customer.setEmail(email);
+
+        System.out.print("Loại khách hiện tại: " + customer.getLoaiKhach() + " | Nhập loại khách mới (Enter để giữ nguyên): ");
+        String loaiKhach = scanner.nextLine();
+        if (!loaiKhach.isEmpty()) customer.setLoaiKhach(loaiKhach);
+
+        System.out.print("Địa chỉ hiện tại: " + customer.getDiachi() + " | Nhập địa chỉ mới (Enter để giữ nguyên): ");
+        String diachi = scanner.nextLine();
+        if (!diachi.isEmpty()) customer.setDiachi(diachi);
+
+        System.out.println("Cập nhật thông tin khách hàng thành công!");
+    }
+
+
+
+
 }

@@ -19,7 +19,7 @@ public class CustomerService implements ICustomerService{
         List<Customer> customerList = customerRepository.findAll();
         for (int i = 0; i <customerList.size() ; i++) {
             if (customerList.get(i)!=null){
-                if (customerList.get(i).getMaNhanVien()==customer.getMaNhanVien()){
+                if (customerList.get(i).getMaID()==customer.getMaID()){
                     System.out.println("id đã tồn tại");
                     return false;
                 }
@@ -28,11 +28,28 @@ public class CustomerService implements ICustomerService{
             }
 
         }
-        return customerList.add(customer);
+        return customerRepository.add(customer);
     }
 
     @Override
-    public boolean delete(int maNhanVien) {
+    public boolean delete(String maNhanVien) {
         return customerRepository.delete(maNhanVien);
     }
+
+    @Override
+    public boolean update(Customer customer) {
+        return customerRepository.update(customer);
+    }
+
+    @Override
+    public Customer findByMaNhanVien(String maNhanVien) {
+        for (Customer c : customerRepository.findAll()) {
+            if (c.getMaID().equals(maNhanVien)) {
+                return c;
+            }
+        }
+        return null;
+    }
+
+
 }

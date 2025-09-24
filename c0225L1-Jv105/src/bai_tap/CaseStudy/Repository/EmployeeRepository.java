@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeRepository implements IEmployeeRepository{
-private final String EMPLOYEE_FILE="c0225L1-Jv105/src/bai_tap/CaseStudy/Data/Employee.csv";
+    private final String EMPLOYEE_FILE="c0225L1-Jv105/src/bai_tap/CaseStudy/Data/Employee.csv";
 
 
     @Override
@@ -45,12 +45,12 @@ private final String EMPLOYEE_FILE="c0225L1-Jv105/src/bai_tap/CaseStudy/Data/Emp
     }
 
     @Override
-    public boolean delete(int maNhanVien) {
+    public boolean delete(String maNhanVien) {
         boolean isSuccessDelete = false;
         List<Employee> employeeList = findAll();
 
         for (int i = 0; i < employeeList.size(); i++) {
-            if (employeeList.get(i).getMaNhanVien().equals(maNhanVien)) {
+            if (employeeList.get(i).getMaID().equals(maNhanVien)) {
                 employeeList.remove(i);
                 isSuccessDelete = true;
                 break;
@@ -67,5 +67,48 @@ private final String EMPLOYEE_FILE="c0225L1-Jv105/src/bai_tap/CaseStudy/Data/Emp
             System.out.println("Lỗi ghi file!");
         }
         return isSuccessDelete;
+    }
+
+    @Override
+    public boolean update(Employee employee) {
+        List<Employee> employeeList = findAll();
+        boolean isUpdated = false;
+
+        for (int i = 0; i < employeeList.size(); i++) {
+            if (employeeList.get(i).getMaID().equals(employee.getMaID())) {
+                employeeList.set(i, employee);
+                isUpdated = true;
+                break;
+            }
+        }
+
+        if (isUpdated) {
+            saveAllToFile(employeeList);
+        }
+
+        return isUpdated;
+    }
+
+    @Override
+    public Employee findById(String maNhanVien) {
+        for (Employee e : findAll()) {
+            if (e.getMaID().equals(maNhanVien)) {
+                return e;
+            }
+        }
+        return null;
+    }
+
+
+    private void saveAllToFile(List<Employee> employeeList) {
+        List<String> lines = new ArrayList<>();
+        for (Employee e : employeeList) {
+            lines.add(e.getInfoToCSV());
+        }
+        try {
+            ReadAndWriteFile.writeListStringToCSV(EMPLOYEE_FILE, lines, false); // false = overwrite
+        } catch (IOException e) {
+            System.out.println("Lỗi ghi file: " + e.getMessage());
+        }
     }
 }

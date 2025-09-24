@@ -19,7 +19,8 @@ public class EmployeeController {
                     "\n 1. Danh sách" +
                     "\n 2. Thêm mới" +
                     "\n 3. Xoá" +
-                    "\n 4. Quay lại menu chính"
+                    "\n 4. Cập nhật" +
+                    "\n 5. Quay lại menu chính"
             );
             System.out.println("Chọn chức năng");
             int choice = Integer.parseInt(scanner.nextLine());
@@ -41,7 +42,7 @@ public class EmployeeController {
                         break;
                         case 3:
                             System.out.print("Nhập mã nhân viên cần xoá: ");
-                            int deleteId = Integer.parseInt(scanner.nextLine());
+                           String deleteId = scanner.nextLine();
                             boolean check = employeeService.delete(deleteId);
                             if (check) {
                                 System.out.println("Xoá thành công");
@@ -49,6 +50,21 @@ public class EmployeeController {
                                 System.out.println("Xoá không thành công");
                             }
                             break;
+                case 4:
+                    System.out.print("Nhập mã nhân viên cần cập nhật: ");
+                    String updateId = scanner.nextLine();
+                    Employee employeeToUpdate = employeeService.findById(updateId);
+
+                    if (employeeToUpdate == null) {
+                        System.out.println("Không tìm thấy nhân viên có mã: " + updateId);
+                    } else {
+                        EmployeeView.inputDataForUpdateEmployee(employeeToUpdate);
+                        boolean isUpdateSuccess = employeeService.update(employeeToUpdate);
+                        System.out.println(isUpdateSuccess ? "Cập nhật thành công và đã lưu vào file!" : "Cập nhật thất bại!");
+                    }
+                    break;
+
+
                 default:
                     System.out.println("Đã kết thúc chương trình");
                     flag = false;

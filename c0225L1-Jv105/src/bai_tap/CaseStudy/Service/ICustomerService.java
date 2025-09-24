@@ -7,5 +7,8 @@ import java.util.List;
 public interface ICustomerService {
     List<Customer> findAll();
     boolean add(Customer customer);
-    boolean delete(int maNhanVien);
+    boolean delete(String maNhanVien);
+    boolean update(Customer customer);
+    Customer findByMaNhanVien(String maNhanVien);
+
 }
