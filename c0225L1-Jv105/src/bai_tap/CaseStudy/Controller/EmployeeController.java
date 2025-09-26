@@ -4,6 +4,7 @@ import bai_tap.CaseStudy.Entity.Employee;
 import bai_tap.CaseStudy.Service.EmployeeService;
 import bai_tap.CaseStudy.Service.IEmployeeService;
 import bai_tap.CaseStudy.View.EmployeeView;
+import bai_tap.mvc1.entity.Student;
 
 import java.util.List;
 import java.util.Scanner;
@@ -20,7 +21,8 @@ public class EmployeeController {
                     "\n 2. Thêm mới" +
                     "\n 3. Xoá" +
                     "\n 4. Cập nhật" +
-                    "\n 5. Quay lại menu chính"
+                    "\n 5. Tim Kiem" +
+                    "\n 6. Quay lại menu chính"
             );
             System.out.println("Chọn chức năng");
             int choice = Integer.parseInt(scanner.nextLine());
@@ -63,7 +65,16 @@ public class EmployeeController {
                         System.out.println(isUpdateSuccess ? "Cập nhật thành công và đã lưu vào file!" : "Cập nhật thất bại!");
                     }
                     break;
-
+                case 5:
+                    System.out.print("Nhập id sinh viên cần tìm: ");
+                    String findId = scanner.nextLine();
+                    Employee foundEmployee = employeeService.findById(findId);
+                    if (foundEmployee != null) {
+                        System.out.println("Đã tìm thấy: " + foundEmployee);
+                    } else {
+                        System.out.println("Không tìm thấy sinh viên có id = " + findId);
+                    }
+                    break;
 
                 default:
                     System.out.println("Đã kết thúc chương trình");

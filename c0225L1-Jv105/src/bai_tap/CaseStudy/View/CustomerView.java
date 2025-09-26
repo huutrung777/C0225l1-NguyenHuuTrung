@@ -84,7 +84,8 @@ public class CustomerView {
         } while (!CheckValidateCustomer.checkName(name));
         customer.setHoTen(name);
 
-        System.out.print("Ngày sinh hiện tại: " + customer.getNgaySinh() + " | Nhập ngày sinh mới (Enter để giữ nguyên): ");
+        System.out.print("Ngày sinh hiện tại: " + customer.getNgaySinh());
+        System.out.println(" | Nhập ngày sinh mới (Enter để giữ nguyên): ");
         String ngaySinh;
         do {
             ngaySinh = scanner.nextLine();
@@ -95,11 +96,13 @@ public class CustomerView {
         } while (!CheckValidateEmployee.checkNgaySinh(ngaySinh));
         customer.setNgaySinh(ngaySinh);
 
-        System.out.print("Giới tính hiện tại: " + customer.getGioiTinh() + " | Nhập giới tính mới (Enter để giữ nguyên): ");
+        System.out.print("Giới tính hiện tại: " + customer.getGioiTinh());
+        System.out.println(" | Nhập giới tính mới (Enter để giữ nguyên): ");;
         String gioiTinh = scanner.nextLine();
         if (!gioiTinh.isEmpty()) customer.setGioiTinh(gioiTinh);
 
-        System.out.print("CMND hiện tại: " + customer.getSoCMND() + " | Nhập CMND mới (Enter để giữ nguyên): ");
+        System.out.print("CMND hiện tại: " + customer.getSoCMND());
+        System.out.println(" | Nhập CMND mới (Enter để giữ nguyên): ");
         String cmndInput;
         do {
             cmndInput = scanner.nextLine();
@@ -110,7 +113,8 @@ public class CustomerView {
         } while (!CheckValidateCustomer.checkCMND(cmndInput));
         customer.setSoCMND(Integer.parseInt(cmndInput));
 
-        System.out.print("Số điện thoại hiện tại: " + customer.getSoDienThoai() + " | Nhập số điện thoại mới (Enter để giữ nguyên): ");
+        System.out.print("Số điện thoại hiện tại: " + customer.getSoDienThoai());
+        System.out.println(" | Nhập số điện thoại mới (Enter để giữ nguyên): ");
         String phone;
         do {
             phone = scanner.nextLine();
@@ -121,15 +125,19 @@ public class CustomerView {
         } while (!CheckValidateCustomer.checkSoDienThoai(phone));
         customer.setSoDienThoai(phone);
 
-        System.out.print("Email hiện tại: " + customer.getEmail() + " | Nhập email mới (Enter để giữ nguyên): ");
+        System.out.print("Email hiện tại: " + customer.getEmail());
+        System.out.println(" | Nhập email mới (Enter để giữ nguyên): ");
         String email = scanner.nextLine();
         if (!email.isEmpty()) customer.setEmail(email);
 
-        System.out.print("Loại khách hiện tại: " + customer.getLoaiKhach() + " | Nhập loại khách mới (Enter để giữ nguyên): ");
+        System.out.print("Loại khách hiện tại: " + customer.getLoaiKhach());
+        System.out.println( " | Nhập loại khách mới (Enter để giữ nguyên): ");
         String loaiKhach = scanner.nextLine();
         if (!loaiKhach.isEmpty()) customer.setLoaiKhach(loaiKhach);
 
-        System.out.print("Địa chỉ hiện tại: " + customer.getDiachi() + " | Nhập địa chỉ mới (Enter để giữ nguyên): ");
+        System.out.print("Địa chỉ hiện tại: " + customer.getDiachi());
+        System.out.println(" | Nhập địa chỉ mới (Enter để giữ nguyên): ");
+
         String diachi = scanner.nextLine();
         if (!diachi.isEmpty()) customer.setDiachi(diachi);
 

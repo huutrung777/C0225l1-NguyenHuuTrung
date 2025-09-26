@@ -1,7 +1,6 @@
 package bai_tap.CaseStudy.Service;
 
 import bai_tap.CaseStudy.Entity.Customer;
-import bai_tap.CaseStudy.Entity.Employee;
 import bai_tap.CaseStudy.Repository.CustomerRepository;
 import bai_tap.CaseStudy.Repository.ICustomerRepository;
 
